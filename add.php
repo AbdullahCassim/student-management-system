@@ -12,11 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$full_name', '$dob', '$class', '$contact_number', '$email')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<div class='alert alert-success text-center'>Student registered successfully!</div>";
-    } else {
+        header("Location: index.php");
+        exit();
+     } else {
         echo "<div class='alert alert-danger text-center'>Error: " . mysqli_error($conn) . "</div>";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -72,3 +74,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
